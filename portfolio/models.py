@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 
 class TagCategory(models.Model):
@@ -25,9 +26,19 @@ class Project(models.Model):
     github_url      = models.URLField(max_length=200, null=True, blank=True)
     hierarchy       = models.IntegerField(null=True, unique=True)
     slug            = models.SlugField(max_length=20, null=True)
+    image           = models.ImageField(null=True)
     tags            = models.ManyToManyField(Tag, related_name='tag',
         through='Project_Tag', 
         )
+
+    def save(self):
+        """resize image on upload"""
+        super().save()
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     def __str__(self):
         return self.name
