@@ -1,0 +1,22 @@
+
+{% for tagcat in tagcats %}
+  <section class="bg-gray-8 pb-5 text-center" id=''>
+    <div class="container">
+      <div class="h2 text-light mb-5">{{ tagcat.name }}</div>
+      <div class="row g-4">
+        
+        {% for tag in tagcat.tag.all %}
+        <div class="col-sm">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body">
+              <i class="{{ tag.icon_class }}"></i>
+              <h4 class="my-3">{{ tag.name }}</h4>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </section>
+{% endfor %}

@@ -1,0 +1,132 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Intro Section -->
+<section class="bg-dark text-light p-5 text-center text-md-start" id="background">
+  <div class="container">
+    <div class="d-md-flex align-items-center justify-content-between">
+      <div class="col mb-5 mx-1">
+        <h1>Charlie Avery </h1>
+        <h1 class="text-muted">Data Analyst Developer</h1>
+        <p class="lead mt-5">
+          Database, analytics and automation professional with 8 years of coding experience. I have designed and managed data products and systems for large businesses, and want to build more.
+        </p>
+        <p class="lead mb-5">
+          My ideal position is to create enterprise software, leveraging the skills I have to generate bespoke applications. Please take a look at the <a href="#projects">projects</a> section for examples.
+        </p>
+        
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#contact">
+          Get In Touch!
+        </button>
+      </div>
+      <div class="col">
+        <img class="mx-auto d-none d-md-block" src="{% static 'images/charlie.jfif' %}" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Toolbox -->
+<section class="bg-gray-8 text-light p-5" id="toolbox">
+  <div class="container text-center">
+    <div class="h1">My Toolbox</div>
+  </div>
+</section>
+
+{% include 'portfolio/main/tools_div.html' %}
+
+
+<!-- Projects -->
+<section class="bg-dark text-light p-5" id="projects">
+  <div class="container text-center">
+    <div class="h1 mb-5">Projects</div>
+    <p>
+      These are some recent projects I have created. They are related to areas that interest me, using technologies I want to develop skills in. 
+    </p>
+  </div>
+</section>
+
+{% include 'portfolio/main/projects_div.html' %}
+
+
+
+<!--Experience-->
+<section class="bg-gray-8 text-light p-5" id="experience">
+  <div class="container text-center">
+    <h1 class="mb-5">Experience</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim doloremque mollitia totam. Earum
+      consequuntur, mollitia magnam laborum eligendi adipisci aliquid modi quia. Natus, doloremque. Natus
+      blanditiis in ex veniam explicabo, commodi ratione. Sed odio modi eius iure officia magnam ratione sint
+      vero mollitia accusamus non illo numquam fugiat, ipsam earum. Hic nobis fuga cumque omnis debitis
+      quaerat architecto accusamus voluptas quo ducimus totam, dolorem id quia voluptate quae soluta ipsum
+      dolores excepturi mollitia ad! Consequatur sed cupiditate, odio pariatur corrupti delectus quis. Nihil
+      molestias fuga repudiandae sunt magni adipisci velit, expedita quia dicta dolorem qui voluptas maiores
+      iure incidunt voluptatem.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia provident voluptatibus aliquid in, vitae
+      delectus vero, ab praesentium alias blanditiis ipsam possimus facere ullam corrupti, dolores eius cumque
+      ad obcaecati deserunt impedit labore? Quibusdam atque voluptatum cumque aspernatur repellendus provident
+      fuga numquam, exercitationem quam ipsam explicabo veniam harum sint animi aliquam veritatis ea quaerat
+      quidem perferendis unde natus iure totam. Magni assumenda adipisci, at perferendis consequuntur impedit
+      provident hic, ratione possimus obcaecati architecto tenetur iusto totam blanditiis eveniet, debitis
+      accusamus similique molestias odio. Illum corrupti recusandae, qui quasi sint dolor! Nesciunt eum
+      voluptate blanditiis delectus tempora accusamus provident laborum in?
+    </p>
+  </div>
+</section>
+
+
+<!--Footer-->
+<footer class="p-5 bg-dark text-light text-center position-relative">
+  <div class="container">
+    <p class="lead">Charlie Avery 2021</p>
+    <a href="#" class="position-absolute bottom-0 end-0 p-5">
+      <i class="bi bi-arrow-up-circle h1"></i>
+    </a>
+  </div>
+</footer>
+
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contact" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="enrollLabel">Contact Me</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="lead">This is an example pop-up. Please contact me via my LinkedIn.</p>
+        <form>
+          <div class="mb-3">
+            <label for="first-name" class="col-form-label">
+              First Name:
+            </label>
+            <input type="text" class="form-control" id="first-name" />
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="col-form-label">Last Name:</label>
+            <input type="text" class="form-control" id="last-name" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="email" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

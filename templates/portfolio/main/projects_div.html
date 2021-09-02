@@ -1,0 +1,28 @@
+<section class="bg-dark p-5">
+  <div class="container">
+    <div class="row g-4">
+      {% for p in projects %}
+      <div class="col-sm-6 col-md-4">
+        <div class="card bg-gray-8 text-light text-center h-100">
+          <img src="..." class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{p.name}}</h5>
+            <p class="card-text">
+              {{p.content}}
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            {% for tag in p.tags.all %}
+              <span class="badge bg-secondary m-1">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          <div class="card-footer">
+            <a href="{{p.url}}" class="card-link">Project</a>
+            <a href="{{p.github_url}}" class="card-link">Github</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
