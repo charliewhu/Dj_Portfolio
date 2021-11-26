@@ -1,25 +1,30 @@
 <section class="bg-dark p-5">
   <div class="container">
-    <div class="row justify-content-center g-4">
+    <div class="row justify-content-center g-5">
       {% for p in projects %}
-      <div class="col-sm-6 col-md-4">
+      <div class="col-12 col-lg-6">
         <div class="card bg-gray-8 text-light text-center h-100">
-          <img src="..." class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">{{p.name}}</h5>
+          {% if p.image %}
+            <a href="{{p.url}}"><img src="{{ p.image.url }}" class="card-img-top"></a>
+          {% endif %}
+          <div class="card-body my-2">
+            <h3 class="card-title">{{ p.name }}</h3>
             <p class="card-text">
-              {{p.content}}
+              {{ p.content }}
             </p>
           </div>
           <div class="card-footer bg-transparent border-0">
+          
             {% for tag in p.tags.all %}
-              <span class="badge bg-secondary m-1">{{ tag.name }}</span>
+              <span class="badge rounded-pill bg-secondary m-1">{{ tag.name }}</span>
             {% endfor %}
           </div>
+
           <div class="card-footer">
             <a href="{{p.url}}" class="card-link">Project</a>
             <a href="{{p.github_url}}" class="card-link">Github</a>
           </div>
+
         </div>
       </div>
       {% endfor %}

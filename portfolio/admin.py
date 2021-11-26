@@ -6,9 +6,9 @@ from portfolio.models import Project_Tag, Project, Tag, TagCategory
 app = apps.get_app_config('portfolio')
 
 
+
 class Project_TagInline(admin.TabularInline):
     model = Project_Tag
-
 
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
