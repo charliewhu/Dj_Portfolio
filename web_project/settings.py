@@ -153,7 +153,7 @@ STATICFILES_DIRS = [
     ]
 
 ADMIN_MEDIA_PREFIX = '/static/admin/' 
-MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com/'
+MEDIA_URL = 'images'
 MEDIA_ROOT = BASE_DIR / 'static' / 'images'
 PROTECTED_MEDIA = BASE_DIR / 'static' / 'protected'
 
@@ -207,4 +207,4 @@ if not DEBUG:
 
 
 if not DEBUG:
-    django_heroku.settings(locals())
+    django_heroku.settings(locals(), staticfiles=False)
