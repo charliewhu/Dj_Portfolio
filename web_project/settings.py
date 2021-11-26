@@ -128,42 +128,31 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
 # S3 Config
+AWS_S3_REGION_NAME = "eu-west-2"
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'charlieavery'
 
-AWS_DEFAULT_ACL = None
 AWS_S3_FILE_OVERWRITE = False
-AWS_S3_REGION_NAME = "eu-west-2"
-AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_DEFAULT_ACL = None
+
+
+# staticfiles
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_URL = '/static/'
-#STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-    ]
-
-ADMIN_MEDIA_PREFIX = '/static/admin/' 
+#ADMIN_MEDIA_PREFIX = '/static/admin/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 MEDIA_URL = '/images/'
-#MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3..{AWS_S3_REGION_NAME}.amazonaws.com/images/'
-MEDIA_ROOT = BASE_DIR / 'static' / 'images'
-PROTECTED_MEDIA = BASE_DIR / 'static' / 'protected'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 if not DEBUG:
     LOGGING = {
