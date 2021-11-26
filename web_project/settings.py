@@ -153,7 +153,7 @@ STATICFILES_DIRS = [
     ]
 
 ADMIN_MEDIA_PREFIX = '/static/admin/' 
-MEDIA_URL = '/staticfiles/images/'
+MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static' / 'images'
 PROTECTED_MEDIA = BASE_DIR / 'static' / 'protected'
 
