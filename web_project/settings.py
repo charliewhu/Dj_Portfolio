@@ -131,8 +131,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# S3 Config
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = "eu-west-2"
+AWS_S3_ADDRESSING_STYLE = "virtual"
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
+STATICFILES_STORAGE = os.environ.get('STATICFILES_STORAGE')
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
     ]
@@ -141,21 +153,6 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 MEDIA_URL = '/staticfiles/images/'
 MEDIA_ROOT = BASE_DIR / 'static' / 'images'
 PROTECTED_MEDIA = BASE_DIR / 'static' / 'protected'
-
-
-# S3 Config
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_REGION_NAME = "eu-west-2"
-AWS_S3_ADDRESSING_STYLE = "virtual"
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
-STATICFILES_STORAGE = os.environ.get('STATICFILES_STORAGE')
-
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
