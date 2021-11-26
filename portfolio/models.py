@@ -34,11 +34,11 @@ class Project(models.Model):
     def save(self):
         """resize image on upload"""
         super().save()
-        img = Image.open(self.image.path)
+        img = Image.open(self.image)
         if img.height > 800 or img.width > 800:
             output_size = (800, 800)
             img.thumbnail(output_size)
-            img.save(self.image.path)
+            img.save(self.image.name)
 
     def __str__(self):
         return self.name
