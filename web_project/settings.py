@@ -144,6 +144,7 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
 STATICFILES_STORAGE = os.environ.get('STATICFILES_STORAGE')
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
