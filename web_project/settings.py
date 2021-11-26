@@ -207,4 +207,4 @@ if not DEBUG:
 
 
 if not DEBUG:
-    django_heroku.settings(locals(), staticfiles=False)
+    django_heroku.settings(locals())
