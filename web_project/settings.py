@@ -146,7 +146,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_URL =  f'https://{AWS_STORAGE_BUCKET_NAME}.s3.eu-west-2.amazonaws.com/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
@@ -207,4 +207,4 @@ if not DEBUG:
 
 
 if not DEBUG:
-    django_heroku.settings(locals())
+    django_heroku.settings(locals(), staticfiles=False)
