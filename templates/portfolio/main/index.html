@@ -9,13 +9,11 @@
       <div class="col mb-5 mx-1">
         <h1>Charlie Avery </h1>
         <h1 class="text-muted">Data Analyst Developer</h1>
-        <p class="lead mt-5">
-          Database, analytics and automation professional with 8 years of coding experience. I have designed and managed data products and systems for large businesses, and want to build more.
-        </p>
-        <p class="lead mb-5">
-          My ideal position is to create enterprise software, leveraging the skills I have to generate bespoke applications. Please take a look at the <a href="#projects">projects</a> section for examples.
-        </p>
-        
+        {% for i in intro %}
+          <p class="lead my-3">
+            {{ i.content | safe }}
+          </p>
+        {% endfor %}      
         <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#contact">
           Get In Touch!
         </button>

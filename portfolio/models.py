@@ -52,3 +52,6 @@ class Project_Tag(models.Model):
         return f"{self.project.name} ' - ' {self.tag.name}"
 
 
+class Intro(models.Model):
+    content   = models.TextField()
+    hierarchy = models.IntegerField(null=True, unique=True)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.apps import apps
-from portfolio.models import Project_Tag, Project, Tag, TagCategory
+from portfolio.models import Intro, Project_Tag, Project, Tag, TagCategory
 
 
 app = apps.get_app_config('portfolio')
@@ -21,7 +21,8 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Tag)
 admin.site.register(Project_Tag)
-admin.site.register(TagCategory)
+admin.site.register(TagCategory) 
+admin.site.register(Intro) 
 
 # for model_name, model in app.models.items():
 #     admin.site.register(model)
