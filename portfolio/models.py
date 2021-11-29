@@ -59,6 +59,7 @@ class Intro(models.Model):
 
 
 class RoleDescription(models.Model):
+    #brief strapline under my name
     content = models.CharField(max_length=100)
 
 

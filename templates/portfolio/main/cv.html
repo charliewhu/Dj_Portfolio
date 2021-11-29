@@ -4,11 +4,11 @@
 
 		{% for role in cvrole %}
 		<div class="container ms-5 pt-4">
-			<h5>
+			<h5 class="mb-3">
 				<strong>{{role.title}}, {{role.company}}:</strong> 
-				{{role.start_date}} - 
+				{{ role.start_date|date:"M Y" }} - 
 				{% if role.end_date %}
-					{{role.end_date}}
+					{{ role.end_date|date:"M Y" }}
 				{% else %}
 					Present
 				{% endif %}
