@@ -53,5 +53,26 @@ class Project_Tag(models.Model):
 
 
 class Intro(models.Model):
+    #the welcome text onsite
     content   = models.TextField()
     hierarchy = models.IntegerField(null=True, unique=True)
+
+
+class RoleDescription(models.Model):
+    content = models.CharField(max_length=100)
+
+
+class CVRole(models.Model):
+    title      = models.CharField(max_length=100)
+    company    = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date   = models.DateField(null=True, blank=True)
+    overview   = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+class CVRoleItem(models.Model):
+    cv_role = models.ForeignKey(CVRole, on_delete=models.CASCADE, related_name='roleitems')
+    content = models.TextField()

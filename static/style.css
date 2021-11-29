@@ -28,13 +28,13 @@ ul.no-bullets {
   height: 100%;
 }
 
-li:nth-child(even){
+/* li:nth-child(even){
   color: #e9ecef;
 }
 
 li:nth-child(odd){
   color: #6c757d;
-}
+} */
   
 .item{
   text-align:center;
