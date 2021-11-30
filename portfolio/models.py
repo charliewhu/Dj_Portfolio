@@ -40,7 +40,7 @@ class Project(models.Model):
         if img.height > 800 or img.width > 800:
             output_size = (400, 400)
             img.thumbnail(output_size, Image.ANTIALIAS)
-            img.save(memfile, 'JPEG', quality=95)
+            img.save(memfile)
             default_storage.save(self.image.name, memfile)
             memfile.close()
             img.close()
@@ -62,10 +62,15 @@ class Intro(models.Model):
     content   = models.TextField()
     hierarchy = models.IntegerField(null=True, unique=True)
 
+    def __str__(self):
+        return f"{self.hierarchy} ' - ' {self.content}"
 
 class RoleDescription(models.Model):
     #brief strapline under my name
     content = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.content
 
 
 class CVRole(models.Model):
