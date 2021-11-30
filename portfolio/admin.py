@@ -11,7 +11,6 @@ class Project_TagInline(admin.TabularInline):
     model = Project_Tag
 
 class ProjectAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name",)}
     inlines = [
         Project_TagInline,
     ]

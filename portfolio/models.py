@@ -25,8 +25,6 @@ class Project(models.Model):
     date_created    = models.DateField()
     url             = models.URLField(max_length=200, null=True, blank=True)
     github_url      = models.URLField(max_length=200, null=True, blank=True)
-    hierarchy       = models.IntegerField(null=True, unique=True)
-    slug            = models.SlugField(max_length=20, null=True)
     image           = models.ImageField(upload_to='images', null=True, blank=True)
     tags            = models.ManyToManyField(Tag, related_name='tag',
         through='Project_Tag', 

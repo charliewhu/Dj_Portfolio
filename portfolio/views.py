@@ -8,7 +8,7 @@ from portfolio.models import CVRole, Intro, TagCategory, Project, Project_Tag
 def home(request):
     intro    = Intro.objects.all().order_by('hierarchy')
     tagcats  = TagCategory.objects.all().prefetch_related('tag').order_by('hierarchy')
-    projects = Project.objects.all().prefetch_related('tags').order_by('date_created')
+    projects = Project.objects.all().prefetch_related('tags').order_by('-date_created')
     cvrole   = CVRole.objects.all().prefetch_related('roleitems').order_by('-start_date')
 
     context = {
