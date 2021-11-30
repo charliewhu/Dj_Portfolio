@@ -1,6 +1,7 @@
 from django.db import models
 from PIL import Image
-
+from django.core.files.storage import default_storage
+from io import BytesIO
 
 class TagCategory(models.Model):
     name        = models.CharField(max_length=100)
@@ -31,14 +32,18 @@ class Project(models.Model):
         through='Project_Tag', 
         )
 
-    # def save(self):
-    #     """resize image on upload"""
-    #     super().save()
-    #     img = Image.open(self.image)
-    #     if img.height > 800 or img.width > 800:
-    #         output_size = (800, 800)
-    #         img.thumbnail(output_size)
-    #         img.save(self.image.name)
+    def save(self, *args, **kwargs):
+        """resize image on upload"""
+        super().save(*args, **kwargs)
+        memfile = BytesIO()
+        img = Image.open(self.image)
+        if img.height > 800 or img.width > 800:
+            output_size = (400, 400)
+            img.thumbnail(output_size, Image.ANTIALIAS)
+            img.save(memfile, 'JPEG', quality=95)
+            default_storage.save(self.image.name, memfile)
+            memfile.close()
+            img.close()
 
     def __str__(self):
         return self.name
