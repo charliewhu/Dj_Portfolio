@@ -13,7 +13,9 @@
 					Present
 				{% endif %}
 			</h5>
-			<p>{{ role.overview }}</p>
+			{% if role.overview %}
+				<p>{{ role.overview }}</p>
+			{% endif %}
 			<ul>
 				{% for roleitem in role.roleitems.all %}
 					<li>{{roleitem.content}}</li>
