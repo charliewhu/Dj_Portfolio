@@ -32,18 +32,18 @@ class Project(models.Model):
         through='Project_Tag', 
         )
 
-    def save(self, *args, **kwargs):
-        """resize image on upload"""
-        super().save(*args, **kwargs)
-        memfile = BytesIO()
-        img = Image.open(self.image)
-        if img.height > 800 or img.width > 800:
-            output_size = (400, 400)
-            img.thumbnail(output_size, Image.ANTIALIAS)
-            img.save(memfile)
-            default_storage.save(self.image.name, memfile)
-            memfile.close()
-            img.close()
+    # def save(self, *args, **kwargs):
+    #     """resize image on upload"""
+    #     super().save(*args, **kwargs)
+    #     memfile = BytesIO()
+    #     img = Image.open(self.image)
+    #     if img.height > 800 or img.width > 800:
+    #         output_size = (400, 400)
+    #         img.thumbnail(output_size, Image.ANTIALIAS)
+    #         img.save(memfile)
+    #         default_storage.save(self.image.name, memfile)
+    #         memfile.close()
+    #         img.close()
 
     def __str__(self):
         return self.name
