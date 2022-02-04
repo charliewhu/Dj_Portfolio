@@ -1,9 +1,24 @@
-<section class="bg-dark p-5">
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="bg-gray-8 text-light p-5" id="projects">
+  <div class="container text-center">
+    <div class="h1 mb-5">Projects</div>
+    <p>
+      These are some recent projects I have created. They are related to areas that interest me, using technologies I want to develop skills in. 
+    </p>
+  </div>
+</section>
+
+
+<section class="bg-gray-8 p-5">
   <div class="container">
     <div class="row justify-content-center g-5">
       {% for p in projects %}
       <div class="col-12 col-lg-6">
-        <div class="card bg-gray-8 text-light text-center h-100">
+        <div class="card bg-dark text-light text-center h-100">
           {% if p.image %}
             <a href="{{p.url}}"><img src="{{ p.image.url }}" class="card-img-top" width="400" 
               height="400" ></a>
@@ -32,3 +47,6 @@
     </div>
   </div>
 </section>
+
+
+{% endblock content %}

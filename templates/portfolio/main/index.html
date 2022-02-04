@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- Intro Section -->
-<section class="bg-dark text-light p-5 text-center text-md-start" id="background">
+<section class="bg-gray-8 text-light p-5 text-center text-md-start" id="background">
   <div class="container">
     <div class="d-md-flex align-items-center justify-content-between">
       <div class="col mb-5 mx-1">
@@ -25,39 +25,11 @@
   </div>
 </section>
 
-<!-- Toolbox -->
-<section class="bg-gray-8 text-light p-5" id="toolbox">
-  <div class="container text-center">
-    <div class="h1">My Toolbox</div>
-  </div>
-</section>
 
-{% include 'portfolio/main/tools_div.html' %}
 
-<!-- Projects -->
-<section class="bg-dark text-light p-5" id="projects">
-  <div class="container text-center">
-    <div class="h1 mb-5">Projects</div>
-    <p>
-      These are some recent projects I have created. They are related to areas that interest me, using technologies I want to develop skills in. 
-    </p>
-  </div>
-</section>
 
-{% include 'portfolio/main/projects_div.html' %}
 
-<!--Experience-->
-{% include 'portfolio/main/cv.html' %}
 
-<!--Footer-->
-<footer class="p-5 bg-dark text-light text-center position-relative">
-  <div class="container">
-    <p class="lead">Charlie Avery 2021</p>
-    <a href="#" class="position-absolute bottom-0 end-0 p-5">
-      <i class="bi bi-arrow-up-circle h1"></i>
-    </a>
-  </div>
-</footer>
 
 <!-- Contact Modal -->
 {% include 'portfolio/main/contact_modal.html' %}

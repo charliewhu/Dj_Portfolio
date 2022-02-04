@@ -52,6 +52,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.nav-bar-brand a:hover {
-  text-decoration: none;
+main {
+  flex:1;
 }

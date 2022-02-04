@@ -85,3 +85,7 @@ class CVRole(models.Model):
 class CVRoleItem(models.Model):
     cv_role = models.ForeignKey(CVRole, on_delete=models.CASCADE, related_name='roleitems')
     content = models.TextField()
+
+
+class Journey(models.Model):
+    content = models.TextField()

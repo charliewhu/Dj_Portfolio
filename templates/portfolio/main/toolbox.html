@@ -1,3 +1,14 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Toolbox -->
+<section class="bg-gray-8 text-light p-5" id="toolbox">
+  <div class="container text-center">
+    <div class="h1">My Toolbox</div>
+  </div>
+</section>
+
 
 {% for tagcat in tagcats %}
   <section class="bg-gray-8 pb-5 text-center" id=''>
@@ -20,3 +31,6 @@
     </div>
   </section>
 {% endfor %}
+
+
+{% endblock content %}
