@@ -1,6 +1,6 @@
 /.env
 /env
-web_project/urls.py
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
