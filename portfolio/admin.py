@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.apps import apps
-from portfolio.models import CVRole, CVRoleItem, Intro, Project_Tag, Project, RoleDescription, Tag, TagCategory
+from portfolio.models import CVRole, CVRoleItem, Intro, Journey, Project_Tag, Project, RoleDescription, Tag, TagCategory
 
 
 app = apps.get_app_config('portfolio')
@@ -32,6 +32,7 @@ admin.site.register(Intro)
 admin.site.register(RoleDescription) 
 admin.site.register(CVRole, CVRoleAdmin) 
 admin.site.register(CVRoleItem) 
+admin.site.register(Journey) 
 
 # for model_name, model in app.models.items():
 #     admin.site.register(model)
