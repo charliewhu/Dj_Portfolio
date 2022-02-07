@@ -10,11 +10,13 @@
 </section>
 
 <section>
-  {% for j in journey %}
-    <p class="lead my-3">
-      {{ j.content | safe }}
-    </p>
-  {% endfor %}      
+  <div class="container text-light">
+    {% for j in journey %}
+      <p class="lead my-3">
+        {{ j.content | safe }}
+      </p>
+    {% endfor %}
+  </div>   
 </section>
 
 
