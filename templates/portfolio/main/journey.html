@@ -9,7 +9,13 @@
   </div>
 </section>
 
-
+<section>
+  {% for j in journey %}
+    <p class="lead my-3">
+      {{ j.content | safe }}
+    </p>
+  {% endfor %}      
+</section>
 
 
 
